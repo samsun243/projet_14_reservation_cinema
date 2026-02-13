@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineReserve - Réservation de Cinéma de Luxe</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-dark text-light">
+
+    <!-- Navbar -->
+    <nav
+        class="navbar navbar-expand-lg navbar-dark bg-transparent border-bottom border-secondary sticky-top backdrop-blur">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">CINE<span class="text-white">RESERVE</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="javascript:void(0)"
+                            onclick="handleNav('films')">Films</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)"
+                            onclick="handleNav('horaires')">Horaires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)"
+                            onclick="handleNav('sieges')">Sièges</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3 gradient-text">Réservez votre émotion</h1>
+            <p class="lead text-secondary">Vivez une expérience cinématographique inoubliable dans nos salles premium.
+            </p>
+
+            <!-- Progress Steps -->
+            <div class="d-flex justify-content-center mt-5 mb-2">
+                <div class="progress-steps d-flex align-items-center gap-2">
+                    <span id="step-1" class="step-dot active" title="Film"></span>
+                    <div class="step-line"></div>
+                    <span id="step-2" class="step-dot" title="Horaire"></span>
+                    <div class="step-line"></div>
+                    <span id="step-3" class="step-dot" title="Sièges"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mb-5">
+        <div class="row g-5">
+            <!-- Left Column: Selection Flow -->
+            <div class="col-lg-8">
+
+                <!-- Section 1: Films -->
+                <section id="films" class="mb-5">
+                    <h3 class="mb-4 border-start border-primary border-4 ps-3">1. Choisissez votre film</h3>
+                    <div id="movie-grid" class="row g-4">
+                        <!-- Movies will be injected here by JS -->
+                    </div>
+                </section>
+
+                <!-- Section 2: Horaires -->
+                <section id="horaires" class="mb-5 d-none">
+                    <h3 class="mb-4 border-start border-primary border-4 ps-3">2. Choisissez l'horaire</h3>
+                    <div id="time-grid" class="row g-3">
+                        <!-- Times will be injected here by JS -->
+                    </div>
+                </section>
+
+                <!-- Section 3: Sièges -->
+                <section id="sieges" class="mb-5 d-none">
+                    <h3 class="mb-4 border-start border-primary border-4 ps-3">3. Sélectionnez vos places</h3>
+                    <div class="screen-container mb-5">
+                        <div class="screen">ÉCRAN</div>
+                    </div>
+                    <div id="seat-map" class="d-flex flex-column align-items-center mb-4">
+                        <!-- Seats will be injected here by JS -->
+                    </div>
+                    <div class="d-flex justify-content-center gap-4 text-small">
+                        <div class="d-flex align-items-center">
+                            <div class="seat-legend available"></div> Libre
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="seat-legend selected"></div> Sélectionné
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="seat-legend occupied"></div> Occupé
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Summary Card -->
+            <div class="col-lg-4">
+                <div class="card booking-card sticky-lg-top" style="top: 100px;">
+                    <div class="card-body p-4">
+                        <h4 class="card-title fw-bold mb-4">Votre Réservation</h4>
+
+                        <div id="summary-content" class="text-secondary">
+                            <p>Veuillez sélectionner un film pour commencer.</p>
+                        </div>
+
+                        <hr class="my-4 border-secondary">
+
+                        <div class="d-flex justify-content-between mb-4">
+                            <span class="fw-bold">Total</span>
+                            <span id="total-price" class="fs-4 fw-bold text-primary">0,00 FCFA</span>
+                        </div>
+
+                        <button id="confirm-btn" class="btn btn-primary w-100 py-3 fw-bold rounded-pill pulse-primary"
+                            disabled>
+                            Confirmer la réservation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-5 bg-darker border-top border-secondary mt-5">
+        <div class="container text-center">
+            <p class="text-secondary mb-0">&copy; 2026 CineReserve. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
